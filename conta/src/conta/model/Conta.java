@@ -1,5 +1,4 @@
 package conta.model;
-
 import conta.util.Cores;
 
 public abstract class Conta {
@@ -61,13 +60,11 @@ public abstract class Conta {
 	}
 	
 	
-	
-	
 	public boolean sacar(float valor) { 
 		if(this.getSaldo() < valor) {
 			System.out.println(Cores.ANSI_RED_BACKGROUND + "                                           ");
-			System.out.println(Cores.TEXT_WHITE_BOLD + "      SALDO INSUFICIENTE!                  ");
-			System.out.println("                                           ");
+			System.out.println(Cores.ANSI_RESET_BACKGROUND + Cores.TEXT_WHITE_BOLD + "      SALDO INSUFICIENTE!                  ");
+			System.out.println(Cores.ANSI_RED_BACKGROUND + "                                           ");
 			return false;
 		}		
 		this.setSaldo(this.getSaldo() - valor);
@@ -75,15 +72,14 @@ public abstract class Conta {
 	}
 
 	
+	
 	public void depositar(float valor) {
 		this.setSaldo(this.getSaldo() + valor);
 	}
 	
 	
 	public void visualizar() {
-
 		String tipo = "";
-		
 		switch(this.tipo) {
 		case 1:
 			tipo = "Conta Corrente";
@@ -93,15 +89,11 @@ public abstract class Conta {
 		break;
 		}
 		
-		System.out.println(Cores.ANSI_BLACK_BACKGROUND + "                       ");
-		System.out.println(Cores.TEXT_GREEN_BOLD_BRIGHT + "     Dados da Conta:   ");
-		System.out.println("    -----------------  ");
-		System.out.println("                       ");
-		System.out.println(Cores.TEXT_BLUE_BOLD + "    Numero da Conta: " + Cores.TEXT_WHITE_BOLD_BRIGHT + this.numero);
-		System.out.println(Cores.TEXT_BLUE_BOLD + "    Agência: " + Cores.TEXT_WHITE_BOLD_BRIGHT + this.agencia);
-		System.out.println(Cores.TEXT_BLUE_BOLD + "    Tipo da Conta: " + Cores.TEXT_WHITE_BOLD_BRIGHT + tipo);
-		System.out.println(Cores.TEXT_BLUE_BOLD + "    Titular: " + Cores.TEXT_WHITE_BOLD_BRIGHT + this.titular);
-		System.out.println(Cores.TEXT_BLUE_BOLD + "    Saldo: " + Cores.TEXT_WHITE_BOLD_BRIGHT + this.saldo);
+		System.out.println(Cores.TEXT_GREEN_BOLD + "\nNumero da Conta: " + Cores.TEXT_WHITE_BOLD_BRIGHT + this.numero);
+		System.out.println(Cores.TEXT_GREEN_BOLD + "Agência: " + Cores.TEXT_WHITE_BOLD_BRIGHT + this.agencia);
+		System.out.println(Cores.TEXT_GREEN_BOLD + "Tipo da Conta: " + Cores.TEXT_WHITE_BOLD_BRIGHT + tipo);
+		System.out.println(Cores.TEXT_GREEN_BOLD + "Titular: " + Cores.TEXT_WHITE_BOLD_BRIGHT + this.titular);
+		System.out.println(Cores.TEXT_GREEN_BOLD + "Saldo: " + Cores.TEXT_WHITE_BOLD_BRIGHT + this.saldo);
 
 	}
 	
